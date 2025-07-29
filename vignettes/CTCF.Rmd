@@ -124,7 +124,7 @@ CTCF_hg38
 It is always advisable to sort GRanges objects and keep standard chromsomes:
 
 ```{r}
-suppressMessages(library(plyranges))
+suppressMessages(library(GenomeInfoDb))  # for keepStandardChromosomes()
 CTCF_hg38_all <- CTCF_hg38_all %>% keepStandardChromosomes() %>% sort()
 CTCF_hg38 <- CTCF_hg38 %>% keepStandardChromosomes() %>% sort()
 ```
@@ -185,6 +185,7 @@ To filter the GRanges object and keep high-confidence CTCF sites, use:
 # Check length before filtering
 print(paste("Number of CTCF motifs at the default 1e-4 threshold:", length(CTCF_hg38)))
 # Filter and check length after filtering
+suppressMessages(library(plyranges))
 CTCF_hg38_filtered <- CTCF_hg38 %>% plyranges::filter(pvalue < 1e-6)
 print(paste("Number of CTCF motifs at the 1e-6 threshold:", length(CTCF_hg38_filtered)))
 # Similarly, filter

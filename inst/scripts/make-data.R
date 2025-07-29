@@ -153,7 +153,7 @@ mtx_to_gr <- function(mtx = mtx_human, genome_id = "hg38") {
   # Subset to common chromosomes
   common_chromosomes <- intersect(chrom_data$chrom, seqlevels(gr))
   chrom_data <- chrom_data[chrom_data$chrom %in% common_chromosomes, ]
-  gr <- keepSeqlevels(gr, common_chromosomes, pruning.mode = "tidy")
+  seqlevels(gr, pruning.mode = "tidy") <- common_chromosomes
   # Match order
   chrom_data <- chrom_data[match(seqlevels(gr), chrom_data$chrom), ]
   # Check if chromosome order is the same
@@ -216,7 +216,7 @@ mtx_to_gr <- function(mtx = mtx_human, genome_id = "hg19") {
   # Subset to common chromosomes
   common_chromosomes <- intersect(chrom_data$chrom, seqlevels(gr))
   chrom_data <- chrom_data[chrom_data$chrom %in% common_chromosomes, ]
-  gr <- keepSeqlevels(gr, common_chromosomes, pruning.mode = "tidy")
+  seqlevels(gr, pruning.mode = "tidy") <- common_chromosomes
   # Match order
   chrom_data <- chrom_data[match(seqlevels(gr), chrom_data$chrom), ]
   # Check if chromosome order is the same
@@ -253,7 +253,7 @@ liftOver_custom <- function(URL = "https://hgdownload.cse.ucsc.edu/goldenpath/hg
   # Subset to common chromosomes
   common_chromosomes <- intersect(chrom_data$chrom, seqlevels(gr_converted))
   chrom_data <- chrom_data[chrom_data$chrom %in% common_chromosomes, ]
-  gr_converted <- keepSeqlevels(gr_converted, common_chromosomes, pruning.mode = "tidy")
+  seqlevels(gr_converted, pruning.mode = "tidy") <- common_chromosomes
   # Match order
   chrom_data <- chrom_data[match(seqlevels(gr_converted), chrom_data$chrom), ]
   # Check if chromosome order is the same
