@@ -186,10 +186,13 @@ To filter the GRanges object and keep high-confidence CTCF sites, use:
 print(paste("Number of CTCF motifs at the default 1e-4 threshold:", length(CTCF_hg38)))
 # Filter and check length after filtering
 suppressMessages(library(plyranges))
-CTCF_hg38_filtered <- CTCF_hg38 %>% plyranges::filter(pvalue < 1e-6)
+# CTCF_hg38_filtered <- CTCF_hg38 %>% plyranges::filter(pvalue < 1e-6)
+CTCF_hg38_filtered <- CTCF_hg38[mcols(CTCF_hg38)$pvalue < 1e-6]
 print(paste("Number of CTCF motifs at the 1e-6 threshold:", length(CTCF_hg38_filtered)))
 # Similarly, filter
-CTCF_hg38_all_filtered <- CTCF_hg38_all %>% plyranges::filter(pvalue < 1e-6)
+# CTCF_hg38_all_filtered <- CTCF_hg38_all %>% plyranges::filter(pvalue < 1e-6)
+CTCF_hg38_all_filtered <- CTCF_hg38_all[mcols(CTCF_hg38_all)$pvalue < 1e-6]
+
 ```
 
 Given some databases provide multiple CTCF PWMs, one CTCF site may be detected 

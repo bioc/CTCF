@@ -1,6 +1,6 @@
 Package: CTCF
 Title: Genomic coordinates of CTCF binding sites, with orientation
-Version: 0.99.12
+Version: 0.99.13
 Authors@R: c(
     person(given = "Mikhail",
            family = "Dozmorov",
@@ -43,7 +43,7 @@ Description: Genomic coordinates of CTCF binding sites, with strand orientation
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.3.3
 URL: https://github.com/dozmorovlab/CTCF
 BugReports: https://github.com/dozmorovlab/CTCF/issues
 Suggests: 
