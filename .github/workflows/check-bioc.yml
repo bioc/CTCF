@@ -52,7 +52,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { os: ubuntu-latest, r: '4.2', bioc: '3.16', cont: "bioconductor/bioconductor_docker:devel", rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest" }
+          - { os: ubuntu-latest, r: '4.2', bioc: '3.16', cont: "bioconductor/bioconductor_docker:RELEASE_3_16", rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest" }
           - { os: macOS-latest, r: '4.2', bioc: '3.16'}
           - { os: windows-latest, r: '4.2', bioc: '3.16'}
           ## Check https://github.com/r-lib/actions/tree/master/examples
@@ -287,6 +287,7 @@ jobs:
         ## at least one locally before this will work. This creates the gh-pages
         ## branch (erasing anything you haven't version controlled!) and
         ## makes the git history recognizable by pkgdown.
+
 
       - name: Upload check results
         if: failure()
